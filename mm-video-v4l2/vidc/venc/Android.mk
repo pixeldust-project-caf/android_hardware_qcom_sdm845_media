@@ -116,6 +116,7 @@ LOCAL_CFLAGS += -Wno-error=implicit-fallthrough
 
 include $(BUILD_SHARED_LIBRARY)
 
+ifneq ($(TARGET_USES_AOSP),true)
 ifeq ($(call is-board-platform-in-list, $(TARGETS_THAT_NEED_SW_VENC_MPEG4)),true)
 # ---------------------------------------------------------------------------------
 # 			Make the Shared library (libOmxSwVencMpeg4)
@@ -162,7 +163,7 @@ LOCAL_SRC_FILES   += src/omx_swvenc_mpeg4.cpp
 
 include $(BUILD_SHARED_LIBRARY)
 endif
-
+endif
 
 # ---------------------------------------------------------------------------------
 # 					END
